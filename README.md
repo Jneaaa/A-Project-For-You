@@ -1,8 +1,48 @@
-If you do happen to read this, I'm happy that I chose you as my partner, and I deeply apologize for how I act the past few days. 
-I didnt mean any of those to hurt you badly, and I made this for you. Its not much  as what you made for me, but I hope this little project can somewhat make you feel better.
-I know it's kinda stupid that I made one like this when I could've just said this to you through call.
-This project came to mind as a reminder of why I decided to commit to this relationship. I plan to improve this later on and make it as a platform to look back and show to our little ones.
+<div align="center">
 
-I love you so much, Nathaniel. My love 
+# 🤍
 
-# - Janea Nicole 
+<br>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1c1c26,100:ff6f91&height=120&section=header"/>
+
+<br><br>
+
+</div>
+
+---
+
+<div align="center">
+
+### ✨ A little something I made for you ✨
+
+</div>
+
+---
+
+<br>
+
+> If you do happen to read this, I'm happy that I chose you as my partner, and I deeply apologize for how I act the past few days.  
+> I didnt mean any of those to hurt you badly, and I made this for you. Its not much  as what you made for me, but I hope this little project can somewhat make you feel better.  
+> I know it's kinda stupid that I made one like this when I could've just said this to you through call.  
+> This project came to mind as a reminder of why I decided to commit to this relationship. I plan to improve this later on and make it as a platform to look back and show to our little ones.  
+
+<br><br>
+
+<div align="center">
+
+## 💞
+
+### I love you so much, Nathaniel. My love 
+
+<br>
+
+---
+
+### — Janea Nicole
+
+<br>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:ff6f91,100:1c1c26&height=120&section=footer"/>
+
+</div>
