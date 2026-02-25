@@ -12,7 +12,6 @@ body {
     background: linear-gradient(to bottom, #0f0f14, #1c1c26);
     color: white;
     text-align: center;
-    overflow-x: hidden;
 }
 
 section {
@@ -21,26 +20,26 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 40px;
+    padding: 30px 20px;
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
     margin-bottom: 20px;
     font-weight: 500;
 }
 
 p {
-    max-width: 650px;
-    line-height: 1.8;
-    font-size: 1.15rem;
+    max-width: 700px;
+    line-height: 1.7;
+    font-size: clamp(1rem, 4vw, 1.15rem);
     white-space: pre-line;
     min-height: 120px;
 }
 
 button {
-    margin-top: 30px;
-    padding: 12px 28px;
+    margin-top: 25px;
+    padding: 12px 24px;
     border: none;
     background: #ff6f91;
     color: white;
@@ -59,20 +58,19 @@ button:hover {
     background: rgba(255,255,255,0.08);
     padding: 20px;
     border-radius: 15px;
-    margin: 15px;
+    margin: 15px 0;
     cursor: pointer;
     transition: 0.3s;
-    max-width: 600px;
+    width: 100%;
+    max-width: 500px;
 }
 
 .memory-card:hover {
     background: rgba(255,255,255,0.15);
-    transform: translateY(-5px);
 }
 
 .memory-card img {
     width: 100%;
-    max-width: 450px;
     border-radius: 12px;
     margin-top: 15px;
     opacity: 0;
@@ -90,14 +88,15 @@ button:hover {
 }
 
 .big-text {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 5vw, 2rem);
     margin-top: 40px;
     max-width: 700px;
 }
 
 #finalImage {
     margin-top: 25px;
-    max-width: 500px;
+    width: 100%;
+    max-width: 450px;
     border-radius: 15px;
     opacity: 0;
     transform: scale(0.95);
@@ -107,6 +106,21 @@ button:hover {
 #finalImage.show {
     opacity: 1;
     transform: scale(1);
+}
+
+.github-section {
+    margin-top: 40px;
+    max-width: 600px;
+}
+
+.github-section a {
+    color: #ff9db5;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#musicToggle {
+    margin-top: 15px;
 }
 </style>
 </head>
@@ -118,18 +132,23 @@ button:hover {
 </section>
 
 <section id="messageSection" class="hidden">
+    <button id="musicToggle" onclick="toggleMusic()" style="display:none;">
+        🔊 Music On
+    </button>
     <p id="typedText"></p>
 </section>
 
 <section id="memories" class="hidden">
     <h1>Remember when...</h1>
 
+    <p>~Click the boxes to reveal~</p>
+
     <div class="memory-card" onclick="reveal(this)">
         The first time we stayed up too late talking
         <p class="hidden">
-        I didn’t want the call to end. I just wanted more of you.
-        I love how soft spoken you are.Made me feel seen and you cherished every word, 
-        every topic and every werid habits I shared.
+        I didn’t want the call to end. I just wanted more of you. I love how soft spoken you are.
+        Made me feel seen and you cherished every word,
+         every topic and every werid habits I shared.
         </p>
         <img src="images/pic1.jpg" alt="Memory 1">
     </div>
@@ -137,7 +156,7 @@ button:hover {
     <div class="memory-card" onclick="reveal(this)">
         That moment you made me laugh uncontrollably
         <p class="hidden">
-        That’s when I realized you felt like home and I could never feel upset for long.
+       That’s when I realized you felt like home and I could never feel upset for long.
         </p>
         <img src="images/pic2.jpg" alt="Memory 2">
     </div>
@@ -145,10 +164,10 @@ button:hover {
     <div class="memory-card" onclick="reveal(this)">
         The first time I felt safe with you
         <p class="hidden">
-        It scared me how much I cared.
-        But I didn’t run. No matter how much it pains me sometimes, 
-        even if I were to make a choice, I still stayed. 
-        Not because its convenient but I choose to and I want this to work.
+       It scared me how much I cared. But I didn’t run. 
+       No matter how much it pains me sometimes, even if I were to make a choice, 
+       I still stayed. 
+       Not because its convenient but I choose to and I want this to work.
         </p>
         <img src="images/pic3.jpg" alt="Memory 3">
     </div>
@@ -165,36 +184,55 @@ button:hover {
     <p id="finalMessage" class="hidden">
         If yes, let’s try again — not perfectly, just better.
         <br><br>
-        I’m still here. ❤️ Pls don’t hate me...
+        I’m still here. ❤️
     </p>
 
     <img id="finalImage" src="images/final.jpg" alt="Final Photo">
+
+    <div id="githubSection" class="github-section hidden">
+        <p>
+        There’s one more thing.
+        When you’re ready… check the README file in the Repository below hehe.
+        </p>
+
+        <a href="https://github.com/Jneaaa/A-Project-For-You" target="_blank">
+            Open the Repository
+        </a>
+
+        <br><br>
+
+        <button onclick="sendEmail()">
+            Send the link to your email
+        </button>
+    </div>
 </section>
 
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+    <source src="audio/Laufey - Silver Lining.mp3" type="audio/mpeg">
+</audio>
+
 <script>
-
 const message = 
-`I know things have felt a little quieter and messy lately.
+`I know things have felt a little quieter and messy lately. 
+Long distance does that. 
+It softens the spark. 
+It stretches the silence. 
 
-Long distance does that.
-It softens the spark.
-It stretches the silence.
+I apologize for the sudden changes. 
+changes that took out the safe feeling for the both of us. 
 
-I apologize for the sudden changes.
-changes that took out the safe feeling for the both of us.
-
-But when I think about us,
-I don’t feel something fading.
-
+But when I think about us, 
+I don’t feel something fading. 
 I feel something worth protecting.
 
-I’m here because you still matter to me.
-
+I’m here because you still matter to me. 
 And I wanted you to know that.`;
 
-
 let i = 0;
-const speed = 70;
+const speed = 60;
+let musicStarted = false;
+const music = document.getElementById("bgMusic");
 
 function typeWriter() {
     if (i < message.length) {
@@ -210,13 +248,43 @@ function typeWriter() {
 function startMessage() {
     document.getElementById("messageSection").classList.remove("hidden");
     window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+
+    if (!musicStarted) {
+        music.volume = 0;
+        music.play();
+        fadeInMusic();
+        musicStarted = true;
+        document.getElementById("musicToggle").style.display = "inline-block";
+    }
+
     typeWriter();
+}
+
+function fadeInMusic() {
+    let vol = 0;
+    const interval = setInterval(() => {
+        if (vol < 0.4) {   // soft volume
+            vol += 0.02;
+            music.volume = vol;
+        } else {
+            clearInterval(interval);
+        }
+    }, 200);
+}
+
+function toggleMusic() {
+    if (music.paused) {
+        music.play();
+        document.getElementById("musicToggle").innerText = "🔊 Music On";
+    } else {
+        music.pause();
+        document.getElementById("musicToggle").innerText = "🔇 Music Off";
+    }
 }
 
 function reveal(card) {
     const hiddenText = card.querySelector("p");
     const image = card.querySelector("img");
-
     hiddenText.classList.toggle("hidden");
     image.classList.toggle("show");
 }
@@ -224,8 +292,18 @@ function reveal(card) {
 function revealFinal() {
     document.getElementById("finalMessage").classList.remove("hidden");
     document.getElementById("finalImage").classList.add("show");
+    document.getElementById("githubSection").classList.remove("hidden");
 }
 
+function sendEmail() {
+    const email = "nathanielnufable22@gmail.com";
+    const subject = encodeURIComponent("There’s something I made for you");
+    const body = encodeURIComponent(
+        "Hi,\n\nWhen you're ready, check the README file here:\n\nhttps://github.com/Jneaaa/A-Project-For-You\n\nI made it for you."
+    );
+
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+}
 </script>
 
 </body>
